@@ -1,3 +1,10 @@
+/*
+ * 
+ * 
+ * 
+ * Sources:
+ * http://developer.android.com/resources/tutorials/views/hello-mapview.html
+ * */
 package edu.ucdavis.ttp.hydrostations;
 
 import android.app.Activity;
