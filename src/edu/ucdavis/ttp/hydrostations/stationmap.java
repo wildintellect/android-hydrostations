@@ -7,6 +7,7 @@
  * */
 package edu.ucdavis.ttp.hydrostations;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ public class stationmap extends MapActivity {
         MapView mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
         
-        final Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW,
+        Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW,
         		Uri.parse("geo:0,0?q=http://gis.its.ucdavis.edu/hydrogen/feeds/dynamic/stations.kml"));
         		startActivity(myIntent);
 
