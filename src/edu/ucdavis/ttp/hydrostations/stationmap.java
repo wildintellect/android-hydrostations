@@ -40,7 +40,9 @@ public class stationmap extends MapActivity {
         String kmlurl = "http://gis.its.ucdavis.edu/hydrogen/feeds/dynamic/stations.kml";
         String fileName = "stations.kml";
         File kmlFile = new File(PATH+fileName);
-        if (kmlFile.isFile()==false){
+        long timetest = System.currentTimeMillis()-kmlFile.lastModified();
+        Log.d("KmlManager","Time Diff:"+timetest);
+        if (timetest > 600000){
         	DownloadFromUrl(kmlurl,fileName);
         }
         Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW,
@@ -61,14 +63,14 @@ public class stationmap extends MapActivity {
     		URL url = new URL(kmlURL); //you can write here any link
     	    File file = new File(fileName); 
     	    long startTime = System.currentTimeMillis();
-    	    Log.d("ImageManager", "download begining");
-    	    Log.d("ImageManager", "download url:" + url);
-    	    Log.d("ImageManager", "downloaded file name:" + fileName);
+    	    Log.d("KmlManager", "download begining");
+    	    Log.d("KmlManager", "download url:" + url);
+    	    Log.d("KmlManager", "downloaded file name:" + fileName);
     	    /* Open a connection to that URL. */
     	    URLConnection ucon = url.openConnection();
 
 			/*
-			 * Define InputStreams to read from the URLConnection.
+			 * Define InputStreams to read from the URLimport java.lang.System;Connection.
 			 */
 			InputStream is = ucon.getInputStream();
 			BufferedInputStream bis = new BufferedInputStream(is);
@@ -86,12 +88,12 @@ public class stationmap extends MapActivity {
 			FileOutputStream fos = new FileOutputStream(PATH+file);
 			fos.write(baf.toByteArray());
 			fos.close();
-			Log.d("ImageManager", "download ready in"
+			Log.d("KmlManager", "download ready in"
 			 + ((System.currentTimeMillis() - startTime) / 1000)
 			+ " sec");
 			} catch (IOException e) {
 			    	
-			Log.d("ImageManager", "Error: " + e);
+			Log.d("KmlManager", "Error: " + e);
 			    	
 			}
     	
