@@ -1,10 +1,11 @@
 /*
- * 
+ * Alex Mandel and Paul Haverkamp 2011
  * 
  * 
  * Sources:
  * http://developer.android.com/resources/tutorials/views/hello-mapview.html
  * http://www.helloandroid.com/tutorials/how-download-fileimage-url-your-device
+ * http://eagle.phys.utk.edu/guidry/android/mapOverlayDemo.html
  * */
 package edu.ucdavis.ttp.hydrostations;
 
@@ -37,7 +38,7 @@ public class stationmap extends MapActivity {
         MapView mapView = (MapView) findViewById(R.id.mapview);
         mapView.setBuiltInZoomControls(true);
         
-        String kmlurl = "http://gis.its.ucdavis.edu/hydrogen/feeds/dynamic/stations.kml";
+        String kmlurl = "http://www.yoursite.com/stations.kml";
         String fileName = "stations.kml";
         File kmlFile = new File(PATH+fileName);
         long timetest = System.currentTimeMillis()-kmlFile.lastModified();
